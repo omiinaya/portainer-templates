@@ -20,10 +20,16 @@ router.get("/", async (req, res) => {
     return acc.concat(cur.templates);
   }, []);
 
-  // Filter the combinedTemplatesArray to ensure unique image values
-const uniqueImages = combinedTemplatesArray.filter((template, index, self) => {
-  return self.findIndex(t => t.image === template.image) === index;
-});
+
+ // Keep the first template with each unique image or include all templates without an image
+const uniqueImages = combinedTemplatesArray.reduce((acc, cur) => {
+  if (!acc.some(t => t.image === cur.image)) {
+    acc.push(cur);
+  } else if (cur.image === undefined) {
+    acc.push(cur);
+  }
+  return acc;
+}, []);
 
 // Create a new object with the unique templates array
 const singleObject = { version: '2', templates: uniqueImages };
