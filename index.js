@@ -1,4 +1,5 @@
 const root = require("./api/root");
+const templates = require('./api/templates');
 const express = require("express");
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(express.json({ extended: false }));
 
 
 app.use("/", root);
+app.use("/templates", templates);
 app.set('case sensitive routing', false)
 app.set('jsonp callback name', 'callback')
 app.disable('x-powered-by')
