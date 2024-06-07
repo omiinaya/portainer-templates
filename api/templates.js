@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
     const valuesSet = new Set(acc['templates'] || []);
     valuesSet.add(obj['templates']);
     acc['templates'] = [...valuesSet];
-    return acc.templates;
+    return acc.templates[0];
   }, {});
 
   const crafted = {
