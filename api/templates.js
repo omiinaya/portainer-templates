@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
   }, []);
 
 
-  const uniqueImages  = combinedTemplatesArray.reduce((acc, cur) => {
+  const uniqueImages = combinedTemplatesArray.reduce((acc, cur) => {
     if (cur.image !== undefined) {  // If the template has an image
       if (!acc.some(t => t.image === cur.image)) {  // Check for a unique combination of 'image' and 'name'
         acc.push(cur);  // Add it to the array
@@ -34,15 +34,17 @@ router.get("/", async (req, res) => {
     return acc;
   }, []);
 
-// Create a new object with the unique templates array
-const singleObject = { version: '2', templates: uniqueImages };
+  // Create a new object with the unique templates array
+  const singleObject = { version: '2', templates: uniqueImages };
 
+  /*
   const directoryPath = './output/'; // The directory where you want to save the file.
   const filename = 'templates.json';  // The name of the JSON file.
 
   fs.writeFileSync(directoryPath + filename, JSON.stringify(singleObject, null, 4));
 
-
+  */
+ 
   try {
     //res.json(templates)
     res.json(singleObject)
@@ -50,7 +52,6 @@ const singleObject = { version: '2', templates: uniqueImages };
     console.error(error);
     return res.status(500).send("Server error");
   }
-
 });
 
 module.exports = router;
