@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const list = require('./links')
+const fs = require('fs')
 
 router.get("/", async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
@@ -35,6 +36,11 @@ router.get("/", async (req, res) => {
 
   // Create a new object with the unique templates array
   const singleObject = { version: '2', templates: uniqueImages };
+  
+  const directoryPath = './output/'; // The directory where you want to save the file.
+  const filename = 'templates.json';  // The name of the JSON file.
+
+  fs.writeFileSync(directoryPath + filename, JSON.stringify(singleObject, null, 4));
 
   try {
     //res.json(templates)
