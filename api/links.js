@@ -11,7 +11,7 @@ const list = [
     'https://raw.githubusercontent.com//SelfhostedPro/selfhosted_templates/master/Template/portainer-v2.json',
     'https://raw.githubusercontent.com//OliverCullimore/portainer-templates/master/templates.json',
     'https://raw.githubusercontent.com//mediadepot/templates/master/portainer.json',
-    'https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-amd64.json'
+    'https://raw.githubusercontent.com//pi-hosted/pi-hosted/master/template/portainer-v2-amd64.json'
 ]
 
 module.exports = list
