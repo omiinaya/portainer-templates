@@ -21,6 +21,7 @@ router.get("/", async (req, res) => {
     return acc;
   }, {});
 
+
   const templates = await resultObject.templates
 
   const crafted = {
@@ -28,11 +29,12 @@ router.get("/", async (req, res) => {
     templates
   }
 
-  const directoryPath = './output/'; // The directory where you want to save the file.
-  const filename = 'templates.json';  // The name of the JSON file.
-
-  fs.writeFileSync(directoryPath + filename, JSON.stringify(crafted, null, 4));
-
+  /*
+   const directoryPath = './output/'; // The directory where you want to save the file.
+   const filename = 'templates.json';  // The name of the JSON file.
+ 
+   fs.writeFileSync(directoryPath + filename, JSON.stringify(crafted, null, 4));
+ */
 
   try {
     res.json(crafted)
