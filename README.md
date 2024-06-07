@@ -1,6 +1,6 @@
 Best consolidated and deduplicated portainer template source to date.
 
-Some duplicates allowed if using a different image. This is in case one doesn't work for you.
+Some duplicates allowed if using a different image. This is in case one doesn't happen to work in your environment.
 
 How to use:
 
