@@ -15,27 +15,22 @@ router.get("/", async (req, res) => {
 
   const results = await Promise.all(requests);
 
-  //merging all unique templates
-  const resultObject = results.reduce((acc, obj) => {
-    acc['templates'] = [...(acc['templates'] || []), ...obj['templates']]
-    return acc;
-  }, {});
+  var combinedTemplatesArray = results.reduce((acc, cur) => {
+    return acc.concat(cur.templates);
+  }, []);
+
+  var singleObject = { version: '2', templates: combinedTemplatesArray };
 
 
-  const templates = await resultObject.templates
+  const directoryPath = './output/'; // The directory where you want to save the file.
+  const filename = 'templates.json';  // The name of the JSON file.
 
-  const crafted = {
-    "version": "2",
-    templates
-  }
-  
-   const directoryPath = './output/'; // The directory where you want to save the file.
-   const filename = 'templates.json';  // The name of the JSON file.
- 
-   fs.writeFileSync(directoryPath + filename, JSON.stringify(crafted, null, 4));
- 
+  fs.writeFileSync(directoryPath + filename, JSON.stringify(singleObject, null, 4));
+
+
   try {
-    res.json(crafted)
+    //res.json(templates)
+    res.json(singleObject)
   } catch (error) {
     console.error(error);
     return res.status(500).send("Server error");
