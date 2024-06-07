@@ -12,7 +12,8 @@ const list = [
     'https://raw.githubusercontent.com/OliverCullimore/portainer-templates/master/templates.json',
     'https://raw.githubusercontent.com/mediadepot/templates/master/portainer.json',
     'https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-amd64.json',
-    'https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json'
+    'https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json',
+    'https://gist.githubusercontent.com/mitris/2d14bb536f791ec49621a41c3b8c79bc/raw/9bc9ab522bf25f3023185c3247a1e19f19d20fbb/the-worlds-largest-catalog-of-templates-for-portainer.json'
 ]
 
 module.exports = list
