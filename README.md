@@ -1,7 +1,9 @@
 Best consolidated and deduplicated portainer template source to date.
 
-https://raw.githubusercontent.com/omiinaya/portainer-templates/main/output/templates.json
+How to use:
 
-TODO: 
-1. Add UI which allows you to add more sources.
-2. Add UI which allows you to add individual templates.
+Settings > General > App templates URL = "https://raw.githubusercontent.com/omiinaya/portainer-templates/main/output/templates.json"
+
+or alternatively
+
+Self host the API... Instructions coming soon.
