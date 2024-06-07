@@ -20,9 +20,13 @@ router.get("/", async (req, res) => {
     return acc.concat(cur.templates);
   }, []);
 
-  // Create a new object with the combined templates array.
-  var singleObject = { version: '2', templates: combinedTemplatesArray };
+  // Filter the combinedTemplatesArray to ensure unique image values
+const uniqueImages = combinedTemplatesArray.filter((template, index, self) => {
+  return self.findIndex(t => t.image === template.image) === index;
+});
 
+// Create a new object with the unique templates array
+const singleObject = { version: '2', templates: uniqueImages };
 
   const directoryPath = './output/'; // The directory where you want to save the file.
   const filename = 'templates.json';  // The name of the JSON file.
