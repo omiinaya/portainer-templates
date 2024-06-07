@@ -15,11 +15,16 @@ router.get("/", async (req, res) => {
 
   const results = await Promise.all(requests);
 
-  var combinedTemplatesArray = results.reduce((acc, cur) => {
-    return acc.concat(cur.templates);
-  }, []);
+  var imageMap = {};
+  results.forEach(obj => {
+    obj.templates.forEach(template => {
+      // Add the template only if the image name is not already present in the map.
+      if (!imageMap[template.image]) imageMap[template.image] = template;
+    });
+  });
 
-  var singleObject = { version: '2', templates: combinedTemplatesArray };
+  // Create a new object with the combined templates array.
+  var singleObject = { version: "2", templates: Object.values(imageMap) };
 
 
   const directoryPath = './output/'; // The directory where you want to save the file.
