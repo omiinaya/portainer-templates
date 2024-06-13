@@ -8,19 +8,14 @@
   },
   "scripts": {
     "start": "node index.js",
-    "push": "git push xs-na main && git push xs-eu main"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hatuanem199801/express-vercel.git"
+    "url": "git+https://github.com/omiinaya/portainer-templates.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hatuanem199801/express-vercel/issues"
-  },
-  "homepage": "https://github.com/hatuanem199801/express-vercel#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "express": "^4.17.1",
